@@ -1,0 +1,13 @@
+{
+  "name": "client-management-system",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "start:angular": "cd angular-client && npm run start",
+    "start:wicket": "cd wicket-client && ./mvnw spring-boot:run",
+    "install:all": "npm install && cd angular-client && npm install"
+  },
+  "workspaces": [
+    "angular-client"
+  ]
+}

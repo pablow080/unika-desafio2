@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Client Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+            <a class="navbar-brand" href="#">Client Management System</a>
+        </nav>
+
+        <div wicket:id="feedback" class="mb-4"></div>
+
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Client List</h5>
+                <button wicket:id="newClientBtn" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> New Client
+                </button>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Name/Company</th>
+                            <th>CPF/CNPJ</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr wicket:id="clients">
+                            <td wicket:id="personType"></td>
+                            <td wicket:id="name"></td>
+                            <td wicket:id="document"></td>
+                            <td wicket:id="email"></td>
+                            <td>
+                                <span wicket:id="status" class="badge"></span>
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <button wicket:id="editBtn" class="btn btn-sm btn-info">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button wicket:id="deleteBtn" class="btn btn-sm btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <button wicket:id="pdfBtn" class="btn btn-sm btn-secondary">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </button>
+                                    <button wicket:id="excelBtn" class="btn btn-sm btn-success">
+                                        <i class="fas fa-file-excel"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div wicket:id="navigator" class="d-flex justify-content-center"></div>
+            </div>
+        </div>
+    </div>
+
+    <div wicket:id="clientModal"></div>
+    <div wicket:id="confirmDelete"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

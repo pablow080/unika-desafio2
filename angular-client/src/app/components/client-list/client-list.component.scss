@@ -1,0 +1,47 @@
+.client-list-container {
+  position: relative;
+}
+
+.header-actions {
+  display: flex;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-column-actions {
+  width: 150px;
+  text-align: center;
+}
+
+.status-active {
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.status-inactive {
+  color: #f44336;
+  font-weight: 500;
+}
+
+.mat-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}

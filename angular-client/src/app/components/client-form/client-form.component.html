@@ -1,0 +1,172 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h2 mat-dialog-title>{{form.get('id').value ? 'Edit' : 'New'}} Client</h2>
+  
+  <mat-dialog-content>
+    <div class="form-row">
+      <mat-form-field>
+        <mat-label>Person Type</mat-label>
+        <mat-select formControlName="personType">
+          <mat-option *ngFor="let type of personTypes" [value]="type">
+            {{type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Individual Fields -->
+    <div *ngIf="form.get('personType').value === 'INDIVIDUAL'">
+      <div class="form-row">
+        <mat-form-field>
+          <mat-label>CPF</mat-label>
+          <input matInput formControlName="cpf" placeholder="CPF">
+          <mat-error *ngIf="form.get('cpf').hasError('required')">CPF is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" placeholder="Name">
+          <mat-error *ngIf="form.get('name').hasError('required')">Name is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field>
+          <mat-label>RG</mat-label>
+          <input matInput formControlName="rg" placeholder="RG">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Birth Date</mat-label>
+          <input matInput [matDatepicker]="birthDatePicker" formControlName="birthDate">
+          <mat-datepicker-toggle matSuffix [for]="birthDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #birthDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Company Fields -->
+    <div *ngIf="form.get('personType').value === 'COMPANY'">
+      <div class="form-row">
+        <mat-form-field>
+          <mat-label>CNPJ</mat-label>
+          <input matInput formControlName="cnpj" placeholder="CNPJ">
+          <mat-error *ngIf="form.get('cnpj').hasError('required')">CNPJ is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Company Name</mat-label>
+          <input matInput formControlName="companyName" placeholder="Company Name">
+          <mat-error *ngIf="form.get('companyName').hasError('required')">Company Name is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field>
+          <mat-label>State Registration</mat-label>
+          <input matInput formControlName="stateRegistration" placeholder="State Registration">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Foundation Date</mat-label>
+          <input matInput [matDatepicker]="foundationDatePicker" formControlName="foundationDate">
+          <mat-datepicker-toggle matSuffix [for]="foundationDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #foundationDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Common Fields -->
+    <div class="form-row">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Email" type="email">
+        <mat-error *ngIf="form.get('email').hasError('required')">Email is required</mat-error>
+        <mat-error *ngIf="form.get('email').hasError('email')">Invalid email format</mat-error>
+      </mat-form-field>
+
+      <mat-checkbox formControlName="active">Active</mat-checkbox>
+    </div>
+
+    <!-- Addresses -->
+    <mat-accordion formArrayName="addresses">
+      <mat-expansion-panel *ngFor="let address of form.get('addresses').controls; let i=index" [formGroupName]="i">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Address {{i + 1}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="form-row">
+          <mat-form-field>
+            <mat-label>Street</mat-label>
+            <input matInput formControlName="street" placeholder="Street">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Number</mat-label>
+            <input matInput formControlName="number" placeholder="Number">
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field>
+            <mat-label>ZIP Code</mat-label>
+            <input matInput formControlName="zipCode" placeholder="ZIP Code">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Neighborhood</mat-label>
+            <input matInput formControlName="neighborhood" placeholder="Neighborhood">
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field>
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone" placeholder="Phone">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" placeholder="City">
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field>
+            <mat-label>State</mat-label>
+            <input matInput formControlName="state" placeholder="State">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Complement</mat-label>
+            <input matInput formControlName="complement" placeholder="Complement">
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-checkbox formControlName="mainAddress">Main Address</mat-checkbox>
+          
+          <button type="button" mat-icon-button color="warn" (click)="removeAddress(i)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <div class="address-actions">
+      <button type="button" mat-raised-button color="primary" (click)="addAddress()">
+        <mat-icon>add</mat-icon>
+        Add Address
+      </button>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || loading">
+      <mat-icon>save</mat-icon>
+      Save
+    </button>
+  </mat-dialog-actions>
+</form>

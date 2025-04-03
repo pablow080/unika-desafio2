@@ -1,0 +1,38 @@
+.form-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+
+  mat-form-field {
+    flex: 1;
+  }
+}
+
+.address-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+mat-dialog-content {
+  min-width: 600px;
+}
+
+mat-accordion {
+  display: block;
+  margin: 16px 0;
+}
+
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

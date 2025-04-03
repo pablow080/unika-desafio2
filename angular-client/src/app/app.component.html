@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <span>{{title}}</span>
+  <span class="spacer"></span>
+  <button mat-icon-button [matTooltip]="'Settings'" aria-label="Settings">
+    <mat-icon>settings</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<body>
+    <wicket:panel>
+        <form wicket:id="clientForm" class="needs-validation">
+            <div class="modal-body">
+                <div class="alert alert-info">
+                    Fields marked with * are required
+                </div>
+
+                <div class="form-group">
+                    <label>Person Type *</label>
+                    <div wicket:id="personType" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    </div>
+                </div>
+
+                <!-- Individual Fields -->
+                <div wicket:id="individualFields">
+                    <div class="form-group">
+                        <label>CPF *</label>
+                        <input wicket:id="cpf" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Name *</label>
+                        <input wicket:id="name" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>RG</label>
+                        <input wicket:id="rg" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Birth Date</label>
+                        <input wicket:id="birthDate" type="date" class="form-control" />
+                    </div>
+                </div>
+
+                <!-- Company Fields -->
+                <div wicket:id="companyFields">
+                    <div class="form-group">
+                        <label>CNPJ *</label>
+                        <input wicket:id="cnpj" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Company Name *</label>
+                        <input wicket:id="companyName" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>State Registration</label>
+                        <input wicket:id="stateRegistration" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Foundation Date</label>
+                        <input wicket:id="foundationDate" type="date" class="form-control" />
+                    </div>
+                </div>
+
+                <!-- Common Fields -->
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input wicket:id="email" type="email" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <div class="custom-control custom-switch">
+                        <input wicket:id="active" type="checkbox" class="custom-control-input" id="activeSwitch">
+                        <label class="custom-control-label" for="activeSwitch">Active</label>
+                    </div>
+                </div>
+
+                <!-- Addresses -->
+                <div class="card mt-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Addresses</h5>
+                        <button wicket:id="addAddress" type="button" class="btn btn-sm btn-primary">
+                            <i class="fas fa-plus"></i> Add Address
+                        </button>
+                    </div>
+                    <div class="card-body" wicket:id="addressContainer">
+                        <div wicket:id="addresses" class="address-item mb-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Street *</label>
+                                        <input wicket:id="street" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Number *</label>
+                                        <input wicket:id="number" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>ZIP Code *</label>
+                                        <input wicket:id="zipCode" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Neighborhood *</label>
+                                        <input wicket:id="neighborhood" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Phone *</label>
+                                        <input wicket:id="phone" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>City *</label>
+                                        <input wicket:id="city" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>State *</label>
+                                        <input wicket:id="state" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Complement</label>
+                                        <input wicket:id="complement" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="custom-control custom-switch mt-4">
+                                            <input wicket:id="mainAddress" type="checkbox" class="custom-control-input">
+                                            <label class="custom-control-label">Main Address</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button wicket:id="removeAddress" type="button" class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
+                            <hr/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button wicket:id="cancel" type="button" class="btn btn-secondary">Cancel</button>
+                <button wicket:id="submit" type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </wicket:panel>
+</body>
+</html>

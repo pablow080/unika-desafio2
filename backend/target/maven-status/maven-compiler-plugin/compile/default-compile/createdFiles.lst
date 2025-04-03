@@ -1,0 +1,11 @@
+com\example\model\TipoPessoa.class
+com\example\controller\ClienteController.class
+com\example\service\ClienteService.class
+com\example\model\Endereco.class
+com\example\repository\ClienteRepository.class
+com\example\model\Cliente.class
+com\example\exception\GlobalExceptionHandler.class
+com\example\repository\EnderecoRepository.class
+com\example\service\EnderecoService.class
+com\example\controller\EnderecoController.class
+com\example\DesafioEstagioApplication.class
